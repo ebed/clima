@@ -23,6 +23,9 @@ class Recuperainformacion
   end
 
   def obtieneTemperaturas
+    if $localizaciones.keys.size == 0
+      cargaCiudadesRedis
+    end
     $localizaciones.keys.each do |llave|
       ubicacion= $localizaciones.get(llave) 
       respuesta = JSON.parse(HTTParty.get(Utilidades.obtieneURL(ubicacion)).body)
