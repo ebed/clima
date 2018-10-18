@@ -1,7 +1,7 @@
 class Recuperainformacion
 
   def initialize
-    throw new Error('How unfortunate! The API Request Failed')  if Random.new.rand(10) < 1
+    raise StandardError.new('How unfortunate! The API Request Failed')  if Random.new.rand(10) < 1
   end
 
 
@@ -25,8 +25,7 @@ class Recuperainformacion
   def obtieneTemperaturas
     $localizaciones.keys.each do |llave|
       ubicacion= $localizaciones.get(llave) 
-      response = HTTParty.get(Utilidades.obtieneURL(ubicacion))
-      respuesta = JSON.parse(response.body)
+      respuesta = JSON.parse(HTTParty.get(Utilidades.obtieneURL(ubicacion)).body)
       parsed_fecha = Utilidades.parseaFechaFromTimestamp(respuesta["currently"]["time"]) 
       temp = Hash.new
       temp["temperatura"] = respuesta["currently"]["temperature"]
@@ -39,5 +38,25 @@ class Recuperainformacion
     end
      
   end
+
+
+  def getDataWeather
+    resp=[]
+    $data.keys.each do |key|
+      dato = JSON.parse $data.get(key)
+    #  ap dato
+      temp= {ciudad: key, temperatura: dato["temperatura"].round(1), temperaturac: Utilidades.farenheit2Celcius(dato["temperatura"]), fecha: dato["fecha"], hora: dato["hora"]}
+      resp << temp
+    end
+    resp
+  end
+
+
+  def pushDataChannel
+    datos = getDataWeather
+  # ap datos
+    ActionCable.server.broadcast "datosclima_channel", datos: getDataWeather
+  end
+
 
 end

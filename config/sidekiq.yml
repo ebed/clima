@@ -1,0 +1,4 @@
+:schedule:
+  refresco:
+    every: ["10s"]
+    class: RefreshWorker

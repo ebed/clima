@@ -9,4 +9,7 @@ class Utilidades
     "https://api.darksky.net/forecast/#{ENV['KEYWEATHER']}/#{ubicacion}"
   end
 
+  def self.farenheit2Celcius(k)
+    ((k - 32) / 1.8).round(1)
+  end
 end

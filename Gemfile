@@ -5,10 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "therubyracer"
-gem "less-rails"  
-gem "twitter-bootstrap-rails"
+gem "therubyracer" 
+ 
+gem 'jquery-rails'
+
 gem "sidekiq"
+gem "sidekiq-scheduler"
+
 gem "sinatra"
 gem 'httparty'
 gem 'awesome_print'
@@ -24,6 +27,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -50,6 +54,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
   gem 'figaro'
 end
 
