@@ -36,7 +36,6 @@ class Recuperainformacion
       $data.set(llave, temp.to_json)
        
     end
-     
   end
 
 
