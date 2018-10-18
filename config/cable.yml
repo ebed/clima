@@ -11,5 +11,5 @@ test:
 
 production:
   adapter: redis
-  url: ENV["REDIS_URL"]  
+  url: URI.parse(ENV["REDIS_URL"])
   channel_prefix: app_production
