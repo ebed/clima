@@ -13,6 +13,10 @@ gem "sinatra"
 gem 'httparty'
 gem 'awesome_print'
 
+gem 'redis'
+gem 'redis-namespace'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record

@@ -5,8 +5,8 @@ class Utilidades
     { fecha: time.strftime("%Y/%m/%d"), hora:  time.strftime("%H:%M")}
   end
 
-  def self.obtieneURL(ciudad)
-    "https://api.darksky.net/forecast/#{ENV['KEYWEATHER']}/#{ciudad[:ubicacion]}"
+  def self.obtieneURL(ubicacion)
+    "https://api.darksky.net/forecast/#{ENV['KEYWEATHER']}/#{ubicacion}"
   end
 
 end

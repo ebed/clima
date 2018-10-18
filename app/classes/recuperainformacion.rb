@@ -16,16 +16,28 @@ class Recuperainformacion
      ]
   end
 
-  def obtieneTemperaturas
-    resp = []
+  def cargaCiudadesRedis
     listadoCiudades.each do |ciudad|
-      response = HTTParty.get(Utilidades.obtieneURL(ciudad))
+      $localizaciones.set(ciudad[:ciudad], ciudad[:ubicacion])
+    end
+  end
+
+  def obtieneTemperaturas
+    $localizaciones.keys.each do |llave|
+      ubicacion= $localizaciones.get(llave) 
+      response = HTTParty.get(Utilidades.obtieneURL(ubicacion))
       respuesta = JSON.parse(response.body)
       parsed_fecha = Utilidades.parseaFechaFromTimestamp(respuesta["currently"]["time"]) 
-      temp = {temperatura: respuesta["currently"]["temperature"], ciudad: ciudad[:ciudad], hora: parsed_fecha[:hora], fecha: parsed_fecha[:fecha]  }
-      resp << temp
+      temp = Hash.new
+      temp["temperatura"] = respuesta["currently"]["temperature"]
+      temp["ciudad"] = llave 
+      temp["hora"] = parsed_fecha[:hora]
+      temp["fecha"] = parsed_fecha[:fecha] 
+       
+      $data.set(llave, temp.to_json)
+       
     end
-    resp
+     
   end
 
 end
