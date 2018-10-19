@@ -1,2 +1,2 @@
-web: bundle exec rails s -p $PORT
-worker: bundle exec sidekiq -c 5 -v
+web: bundle exec thin start -p $PORT -e $RACK_ENV
+worker: bundle exec sidekiq  -e $RACK_ENV
