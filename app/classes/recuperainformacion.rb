@@ -37,7 +37,6 @@ class Recuperainformacion
       temp["fecha"] = parsed_fecha[:fecha] 
        
       $data.set(llave, temp.to_json)
-       
     end
   end
 
@@ -46,7 +45,13 @@ class Recuperainformacion
     resp=[]
     $data.keys.each do |key|
       dato = JSON.parse $data.get(key)
-      temp= {ciudad: key, temperatura: dato["temperatura"].round(1), temperaturac: Utilidades.farenheit2Celcius(dato["temperatura"]), fecha: dato["fecha"], hora: dato["hora"]}
+      temp= {
+        ciudad: key, 
+        temperatura: dato["temperatura"].round(1), 
+        temperaturac: Utilidades.farenheit2Celcius(dato["temperatura"]), 
+        fecha: dato["fecha"], 
+        hora: dato["hora"]
+      }
       resp << temp
     end
     resp

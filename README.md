@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Sistema para AcidLabs. 
 
-Things you may want to cover:
+Provee una plataforma que por medio de tareas en segundo plano, carga desde la api de climas, las temperaturas de las ciudades indicadas. Esto queda disponible en REDIS para ser obtenido desde la web en su primera carga.
 
-* Ruby version
+En paralelo, una tarea programada se encarga de enviar por medio de ActionCable las actualizaciones de los datos al frontend por medio de un WebSocket.
 
-* System dependencies
+Se utilizaron para producción, un servidor redis para mantener todo lo relacionado a las tareas programadas y los datos, y otro servidor redis dedicado a dar servicio a ActionCable. 
 
-* Configuration
+Para el frontend, se utilizó Bootstrap como gema. Se evaluó el utilizar bower para traer, pero era complejizar mucho la solución.
 
-* Database creation
+Solo se almacenan las ultimas temperaturas de cada ciudad, no guardando un registro historico. Para esto se pudo habilitar una base de datos, y se pudo generar gráficos por medio de alguna libreria como NVD3.
+Además se evaluó poner en frente un servidor NGINX, dando la capacidad de escalar de ser necesario. 
 
-* Database initialization
 
-* How to run the test suite
+#VER DATOS EN REDIS
+Se disponibiliza en el sitio REDIS-BROWSER, que entrega la posibilidad de navegar en los datos almacenados en la conección PRODUCCION.  
 
-* Services (job queues, cache servers, search engines, etc.)
+https://appweathertest.herokuapp.com/redis-browser
+Usuario: test 
+Passwd: 123
 
-* Deployment instructions
 
-* ...
+Para ver los datos de las ubicaciones:
+api.localizaciones 
+Aquí se almacenan las ubicaciones geográficas de cada ciudad.
+
+
+Para ver los datos del clima
+api.datos 
+
+Aquí se almacenan las últimas temperaturas de cada ciudad.
+
+
+Para ver los datos de los errores
+api.errors 
+Aquí se almacenan los casos de error al tratar de conectar con la API para obtener la información.
+
+
+#CLASES IMPORTANTES
+
+Se utilizan las siguientes clases para prestar algunas funcionalidades:
+- Recuperainformacion: en esta se tiene la labor de:
+  - Obtener las ciudades y recuperar las temperaturas desde API. 
+  - Recuperar los datos almacenados en REDIS para ser utilizados tanto por el controlador Informacion para desplegar en pantalla, como por ActionCable que lo envia a js para hacer update del DOM con la información. 
+
+
+
+- Utilidades: provee utilidades simples:
+    + Renderiza la fecha y la deja en el TimeZone de santiago. 
+    + Calcula temperatura en Celcius
+    + Obtiene la URL de la API
+
+
