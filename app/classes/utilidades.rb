@@ -1,7 +1,8 @@
 class Utilidades
 
   def self.parseaFechaFromTimestamp(time)
-    time = Time.at( time )
+    time = Time.at( time ).in_time_zone("America/Santiago")
+
     { fecha: time.strftime("%Y/%m/%d"), hora:  time.strftime("%H:%M")}
   end
 
