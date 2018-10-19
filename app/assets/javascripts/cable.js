@@ -8,6 +8,6 @@
 (function() {
   console.log("Creando en cable");
   this.App || (this.App = {});
-  App.cable = ActionCable.createConsumer();
+  App.cable = ActionCable.createConsumer("wss://appweathertest.herokuapp.com/cable");
 
 }).call(this);
