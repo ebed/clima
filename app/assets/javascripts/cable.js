@@ -7,7 +7,6 @@
 
 (function() {
   this.App || (this.App = {});
-  console.log("En Cable");
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
