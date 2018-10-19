@@ -1,6 +1,6 @@
 # README
 
-#Sistema para AcidLabs. 
+# Sistema para AcidLabs. 
 
 Provee una plataforma que por medio de tareas en segundo plano, carga desde la api de climas, las temperaturas de las ciudades indicadas. Esto queda disponible en REDIS para ser obtenido desde la web en su primera carga.
 
@@ -14,7 +14,7 @@ Solo se almacenan las ultimas temperaturas de cada ciudad, no guardando un regis
 Además se evaluó poner en frente un servidor NGINX, dando la capacidad de escalar de ser necesario. 
 
 
-#VER DATOS EN REDIS
+# VER DATOS EN REDIS
 Se disponibiliza en el sitio REDIS-BROWSER, que entrega la posibilidad de navegar en los datos almacenados en la conección PRODUCCION.  
 
 https://appweathertest.herokuapp.com/redis-browser
@@ -38,16 +38,18 @@ api.errors
 Aquí se almacenan los casos de error al tratar de conectar con la API para obtener la información.
 
 
-#CLASES IMPORTANTES
+# CLASES IMPORTANTES
 
 Se utilizan las siguientes clases para prestar algunas funcionalidades:
-- Recuperainformacion: en esta se tiene la labor de:
+## Recuperainformacion: 
+En esta se tiene la labor de:
   - Obtener las ciudades y recuperar las temperaturas desde API. 
   - Recuperar los datos almacenados en REDIS para ser utilizados tanto por el controlador Informacion para desplegar en pantalla, como por ActionCable que lo envia a js para hacer update del DOM con la información. 
 
 
 
-- Utilidades: provee utilidades simples:
+## Utilidades: 
+    Provee utilidades simples:
     + Renderiza la fecha y la deja en el TimeZone de santiago. 
     + Calcula temperatura en Celcius
     + Obtiene la URL de la API
