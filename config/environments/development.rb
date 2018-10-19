@@ -13,6 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   config.action_cable.url = 'ws://localhost:3000/cable'
+  config.action_cable.allowed_request_origins = ['http://localhost:3000/' ]
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
