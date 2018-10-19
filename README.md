@@ -56,9 +56,10 @@ En esta se tiene la labor de:
 ## Utilidades: 
 
 Provee utilidades simples:
-    - Renderiza la fecha y la deja en el TimeZone de Santiago. 
-    - Calcula temperatura en Celcius
-    - Obtiene la URL de la API
+
+- Renderiza la fecha y la deja en el TimeZone de Santiago.
+- Calcula temperatura en Celcius
+- Obtiene la URL de la API
 
 
 ## refresh_worker
