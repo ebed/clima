@@ -57,7 +57,7 @@ class Recuperainformacion
     $data.keys.each do |key|
       dato = JSON.parse $data.get(key)
    
-      c = Climapojo.new(ciudad: key, hora: dato["hora"], fecha: dato["fecha"], temperatura: dato["temperatura"].round(1), temperaturac: Utilidades.farenheit2Celcius(dato["temperatura"])}
+      c = Climapojo.new(ciudad: key, hora: dato["hora"], fecha: dato["fecha"], temperatura: dato["temperatura"].round(1), temperaturac: Utilidades.farenheit2Celcius( dato["temperatura"] ) )
       resp << temp
     end
     resp
