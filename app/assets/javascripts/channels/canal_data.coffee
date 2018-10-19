@@ -6,7 +6,7 @@ App.canal_data = App.cable.subscriptions.create "CanalDataChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-  	alert("ok");
+  	console.log("ok");
   	$('#contenido').html('');
   	for d,v of data.datos  		
   			console.log(v)
