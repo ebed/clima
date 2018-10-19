@@ -34,14 +34,16 @@ Aquí se almacenan las últimas temperaturas de cada ciudad.
 
 
 Para ver los datos de los errores
-api.errors 
+*api.errors* 
 Aquí se almacenan los casos de error al tratar de conectar con la API para obtener la información.
 
 
 # CLASES IMPORTANTES
 
 Se utilizan las siguientes clases para prestar algunas funcionalidades:
+
 ## Recuperainformacion: 
+
 En esta se tiene la labor de:
 
   - Obtener las ciudades y recuperar las temperaturas desde API. 
@@ -50,11 +52,14 @@ En esta se tiene la labor de:
 
 
 ## Utilidades: 
-    Provee utilidades simples:
+
+Provee utilidades simples:
     + Renderiza la fecha y la deja en el TimeZone de santiago. 
     + Calcula temperatura en Celcius
     + Obtiene la URL de la API
 
+
+## refresh_worker
 
 En el Worker que refresca la información, utiliza el manejo de la excepción lanzada cada vez que se llama al inicializador de Recuperainformacion. En el caso de lanzar la excepción, se lanza al logger y se guarda en Redis en api.errors, con la llave del timestamp actual y el mensaje.
 
