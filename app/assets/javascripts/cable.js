@@ -8,7 +8,7 @@
 
  console.log("Creando en cable");
 (function() {
- 
+  console.log("Creando en cable 2");
   this.App || (this.App = {});
   App.cable = ActionCable.createConsumer();
 
