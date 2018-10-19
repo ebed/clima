@@ -19,8 +19,7 @@ App.canal_data = App.cable.subscriptions.create "CanalDataChannel",
 				   			<th > <h3> '+ v["hora"]+' </h3></th>
 				   		</tr>
 				   		<tr>
-				   			<th> TEMPERATURA  </th>
-				   			
+				   			<th> TEMPERATURA  </th> 
 				   		</tr>
 				   		<tr>
 				   		<td> <h2>'+ v["temperatura"]+'° F</h2> </td>
