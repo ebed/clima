@@ -6,9 +6,8 @@
 //= require_tree ./channels
 
 
- console.log("Creando en cable");
-(function() {
-  console.log("Creando en cable 2");
+  
+(function() { 
   this.App || (this.App = {});
   App.cable = ActionCable.createConsumer();
 
