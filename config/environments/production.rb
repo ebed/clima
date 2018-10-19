@@ -46,7 +46,9 @@ Rails.application.configure do
   #config.action_cable.url = 'wss://appweathertest.herokuapp.com/cable'
   config.action_cable.url = 'wss://appweathertest.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = ['https://appweathertest.herokuapp.com/']
-
+  config.web_socket_server_url = 'wss://appweathertest.herokuapp.com/cable'
+  
+  config.middleware.use DataActionCable
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
