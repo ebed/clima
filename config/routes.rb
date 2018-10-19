@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :informacion
   root "informacion#index"
   mount ActionCable.server => '/cable'
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
