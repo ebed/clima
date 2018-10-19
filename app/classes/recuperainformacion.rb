@@ -8,7 +8,7 @@ class Recuperainformacion
   def listadoCiudades
      [
         {ciudad: "Santiago,CL", ubicacion: "-33.45,-70.66667"},
-        {ciudad: "Zurich,CH", ubicacion: "47.37861,8,54"},
+        {ciudad: "Zurich,CH", ubicacion: "47.37861,8.54"},
         {ciudad: "Auckland,NZ", ubicacion: "-36.85,174.78333"},
         {ciudad: "Sidney,AU", ubicacion: "-33.868,151.21"}, 
         {ciudad: "Londres,UK", ubicacion: "51.50722,-0.1275"}, 
