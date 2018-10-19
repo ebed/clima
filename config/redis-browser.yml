@@ -3,3 +3,5 @@ connections:
     url: redis://127.0.0.1:6379/1
   production:
     url: redis://h:pfb0f4a6a4f6dc734978028c21ca4fe98bc468389ae3f61e0c07097229e324a0d@ec2-18-205-186-65.compute-1.amazonaws.com:18169/
+  prod_actioncable:
+    url: redis://redistogo:5f89f636a92769b8734d734b0e280f56@spinyfin.redistogo.com:11014/
