@@ -6,7 +6,30 @@
 	  <div class="row">
 	   
 	   	<div id="contenido">
-	   		<%= @datosiniciales %>
+	   		<% @datosiniciales.each do |c| %>
+	   		<div class="col-sm-2 text-center  ">
+		      <div class="panel panel-default">
+				  <div class="panel-heading"> <%= c.ciudad %> </div>
+				  <div class="panel-body">
+				   	<table>
+				   		<tr>
+				   			<th > <h3> <%= c.hora %>   </h3></th>
+				   		</tr>
+				   		<tr>
+				   			<th> TEMPERATURA  </th> 
+				   		</tr>
+				   		<tr>
+				   		<td> <h2>  <%= c.temperatura %>  ° F</h2> </td>
+				   		</tr>
+				   		<tr>
+				   		<td> <h2>  <%= c.temperaturac %>   ° C</h2> </td>
+				   		</tr>
+				  </div>
+				</div>
+		    </div>
+		    <% end %>
+
+	   		
 
 	   	</div>
 
