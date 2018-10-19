@@ -43,6 +43,7 @@ Aquí se almacenan los casos de error al tratar de conectar con la API para obte
 Se utilizan las siguientes clases para prestar algunas funcionalidades:
 ## Recuperainformacion: 
 En esta se tiene la labor de:
+
   - Obtener las ciudades y recuperar las temperaturas desde API. 
   - Recuperar los datos almacenados en REDIS para ser utilizados tanto por el controlador Informacion para desplegar en pantalla, como por ActionCable que lo envia a js para hacer update del DOM con la información. 
 
@@ -54,4 +55,17 @@ En esta se tiene la labor de:
     + Calcula temperatura en Celcius
     + Obtiene la URL de la API
 
+
+En el Worker que refresca la información, utiliza el manejo de la excepción lanzada cada vez que se llama al inicializador de Recuperainformacion. En el caso de lanzar la excepción, se lanza al logger y se guarda en Redis en api.errors, con la llave del timestamp actual y el mensaje.
+
+En el caso de que no haya excepción, se recuperarán las temperaturas desde la Api y se enviarán al front por el ActionCable.
+
+    begin 
+      r = Recuperainformacion.new 
+      r.obtieneTemperaturas 
+      r.pushDataChannel
+    rescue => e 
+      logger.info e
+      $errores.set(Time.now, e.message )
+    end
 
