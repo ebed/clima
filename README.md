@@ -25,18 +25,18 @@ https://appweathertest.herokuapp.com/redis-browser
 
 Para ver los datos de las ubicaciones:
 
-##api.localizaciones 
+## api.localizaciones 
 Aquí se almacenan las ubicaciones geográficas de cada ciudad.
 
 
 Para ver los datos del clima
-##api.datos 
+## api.datos 
 
 Aquí se almacenan las últimas temperaturas de cada ciudad.
 
 
 Para ver los datos de los errores
-##api.errors
+## api.errors
 Aquí se almacenan los casos de error al tratar de conectar con la API para obtener la información.
 
 
