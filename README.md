@@ -18,23 +18,25 @@ Además se evaluó poner en frente un servidor NGINX, dando la capacidad de esca
 Se disponibiliza en el sitio REDIS-BROWSER, que entrega la posibilidad de navegar en los datos almacenados en la conección PRODUCCION.  
 
 https://appweathertest.herokuapp.com/redis-browser
-Usuario: test 
-Passwd: 123
+
+- Usuario: test 
+- Passwd: 123
 
 
 Para ver los datos de las ubicaciones:
-api.localizaciones 
+
+##api.localizaciones 
 Aquí se almacenan las ubicaciones geográficas de cada ciudad.
 
 
 Para ver los datos del clima
-api.datos 
+##api.datos 
 
 Aquí se almacenan las últimas temperaturas de cada ciudad.
 
 
 Para ver los datos de los errores
-api.errors
+##api.errors
 Aquí se almacenan los casos de error al tratar de conectar con la API para obtener la información.
 
 
@@ -54,9 +56,9 @@ En esta se tiene la labor de:
 ## Utilidades: 
 
 Provee utilidades simples:
-    * Renderiza la fecha y la deja en el TimeZone de Santiago. 
-    * Calcula temperatura en Celcius
-    * Obtiene la URL de la API
+    - Renderiza la fecha y la deja en el TimeZone de Santiago. 
+    - Calcula temperatura en Celcius
+    - Obtiene la URL de la API
 
 
 ## refresh_worker
